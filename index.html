@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pragti Gupta - Digital Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-blue: #3498db;
+            --dark-blue: #2980b9;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #ecf0f1;
+            --border-color: #dfe6e9;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .dots-wrapper {
+            display: flex;
+        }
+
+        .browser-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        #dot-1 { background-color: #e74c3c; }
+        #dot-2 { background-color: #f39c12; }
+        #dot-3 { background-color: #2ecc71; }
+
+        #navigation {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #navigation a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        #navigation a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+
+        .s1 {
+            background-color: var(--white);
+        }
+
+        .s2 {
+            background-color: var(--light-gray);
+        }
+
+        /* About Section */
+        .intro-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #profile_pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        #theme-options-wrapper {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .theme-dot {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .theme-dot:hover {
+            transform: scale(1.1);
+        }
+
+        #light-mode { background: #f5f5f5; }
+        #blue-mode { background: var(--primary-blue); }
+        #green-mode { background: #2ecc71; }
+        #purple-mode { background: #9b59b6; }
+
+        #settings-note {
+            font-size: 13px;
+            text-align: center;
+            color: #7f8c8d;
+        }
+
+        .right-column {
+            flex: 2;
+        }
+
+        #preview-shadow {
+            background: var(--primary-blue);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        #preview {
+            background: var(--white);
+            padding: 30px;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .corner {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            border-radius: 5px;
+        }
+
+        #corner-tl {
+            top: 0;
+            left: 0;
+            border-top: 3px solid var(--primary-blue);
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        #corner-tr {
+            top: 0;
+            right: 0;
+            border-top: 3px solid var(--primary-blue);
+            border-right: 3px solid var(--primary-blue);
+        }
+
+        #corner-bl {
+            bottom: 0;
+            left: 0;
+            border-bottom: 3px solid var(--primary-blue);
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        #corner-br {
+            bottom: 0;
+            right: 0;
+            border-bottom: 3px solid var(--primary-blue);
+            border-right: 3px solid var(--primary-blue);
+        }
+
+        /* Skills Section */
+        .about-wrapper {
+            display: flex;
+            gap: 40px;
+        }
+
+        .about-me {
+            flex: 2;
+        }
+
+        .skills-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .skills-table th, .skills-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skills-table th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .social-links {
+            flex: 1;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Certificate Gallery Styles */
+        .certificate-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .certificate-item {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .certificate-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .certificate-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .certificate-link:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary-blue);
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Contact Form */
+        #contact-form {
+            max-width: 600px;
+            margin: 30px auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #submit-btn {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        #submit-btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            color: #7f8c8d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .intro-wrapper, .about-wrapper {
+                flex-direction: column;
+            }
+            
+            .left-column, .right-column {
+                width: 100%;
+            }
+            
+            #navigation {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            #profile_pic {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .certificate-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .certificate-item {
+                width: 90%;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Navigation -->
+        <nav class="nav-wrapper">
+            <div class="dots-wrapper">
+                <div id="dot-1" class="browser-dot"></div>
+                <div id="dot-2" class="browser-dot"></div>
+                <div id="dot-3" class="browser-dot"></div>
+            </div>
+            <ul id="navigation">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- About Section -->
+        <section class="s1" id="about">
+            <div class="intro-wrapper">
+                <div class="left-column">
+                    <img id="profile_pic" src="portfolio.jpg" alt="Pragti Gupta">
+                    <h5 style="text-align: center;line-height: 0;">Theme Settings</h5>
+                    <div id="theme-options-wrapper">
+                        <div data-mode="light" id="light-mode" class="theme-dot"></div>
+                        <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+                        <div data-mode="green" id="green-mode" class="theme-dot"></div>
+                        <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+                    </div>
+                    <p id="settings-note">Theme settings will be saved for<br>your next visit</p>
+                </div>
+                <div class="right-column">
+                    <div id="preview-shadow">
+                        <div id="preview">
+                            <div id="corner-tl" class="corner"></div>
+                            <div id="corner-tr" class="corner"></div>
+                            <h1>Hi, I'm Pragti Gupta</h1>
+                            <p>"I am a first-year engineering student with a passion for innovation, problem-solving, and continuous learning. This portfolio highlights my early journey into the world of engineering."
+                            <div id="corner-br" class="corner"></div>
+                            <div id="corner-bl" class="corner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="s2" id="skills">
+            <div class="about-wrapper">
+                <div class="about-me">
+                    <h4>Skills & Expertise</h4>
+                    <div class="skills-table">
+                        <table>
+                            <tr>
+                                <th>Programming Languages</th>
+                                <th>Tools</th>
+                            </tr>
+                            <tr>
+                                <td>C, C++, Python, HTML, CSS</td>
+                                <td>MS Word, Excel</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <h4>Strengths</h4>
+                    <p>Problem-solver, fast learner, focused,leadership and teamwork
+                    
+                    <h4>Hobbies</h4>
+                    <p>Reading ,Coding, Exploring tech
+                </div>
+                
+                <div class="social-links">
+                    <h3>Who am I</h3>
+                    <p>I am a first-year B.Tech Data Science student at MITAOE, Alandi. I'm passionate about technology, problem-solving, and continuous learning. With a curious mindset, I'm always eager to explore new innovations and grow in the ever-evolving tech world.
+                        
+                        As a beginner in the field, I am building a strong foundation in programming languages like Python, understanding basic statistics, and learning how to visualize and interpret data meaningfully. I enjoy breaking down complex problems, asking questions, and continuously improving through hands-on learning..</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="s1" id="education">
+            <h3 style="text-align: center;">Education</h3>
+            <div class="education-table">
+                <table>
+                    <tr>
+                        <th>Degree</th>
+                        <th>Institution</th>
+                        <th>Percentage / Status</th>
+                    </tr>
+                    <tr>
+                        <td>B.Tech in Data Science</td>
+                        <td>MITAOE, Alandi</td>
+                        <td>Pursuing</td>
+                    </tr>
+                    <tr>
+                        <td>12th Grade</td>
+                        <td>RTS Higher Sec School</td>
+                        <td>86%</td>
+                    </tr>
+                    <tr>
+                        <td>10th Grade</td>
+                        <td>RTS Higher Sec School</td>
+                        <td>81%</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="s2" id="certifications">
+            <h3 style="text-align: center;">Certifications</h3>
+            <div class="certificate-gallery">
+                <!-- Oracle Certificate -->
+                <div class="certificate-item">
+                    <h4>Oracle Certified</h4>
+                    <div class="certificate-image">
+                        <img src="oracle jpg.jpg" alt="Oracle Certification" onclick="openModal('oracle-cert.jpg')">
+                    </div>
+                    <a href="oracle jpg.jpg" target="_blank" class="certificate-link">View Certificate</a>
+                </div>
+                
+                <!-- Python Essential 1 Certificate -->
+                <div class="certificate-item">
+                    <h4>Python Essential 1</h4>
+                    <div class="certificate-image">
+                        <img src="python essential1.JPG" alt="Python Essential 1 Certification" onclick="openModal('python-essential1.jpg')">
+                    </div>
+                    <a href="python essential1.JPG" target="_blank" class="certificate-link">View Certificate</a>
+                </div>
+                
+                <!-- Python Essential 2 Certificate -->
+                <div class="certificate-item">
+                    <h4>Python Essential 2</h4>
+                    <div class="certificate-image">
+                        <img src="python essential2.Jpg" alt="Python Essential 2 Certification" onclick="openModal('python-essential2.jpg')">
+                    </div>
+                    <a href="python essential2.Jpg" target="_blank" class="certificate-link">View Certificate</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for enlarged certificate view -->
+        <div id="certificateModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+            <div id="caption"></div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="s1" id="contact">
+            <h3 style="text-align: center;">Get In Touch</h3>
+            <div class="contact-info">
+                <p>📞Contact No.: <a href="tel:9103356433">9103356433</a></p>
+                <p>📧 Email: <a href="mailto:202401120007@mitaoe.ac.in">202401120007@mitaoe.ac.in</a></p>
+                <p>📍 Location: <a href="https://www.google.com/maps?q=Alandi,+Pune" target="_blank">Alandi, Pune</a></p>
+            </div>
+            <form id="contact-form">
+                <label>Name</label>
+                <input class="input-field" type="text" name="name" required>
+                <label>Subject</label>
+                <input class="input-field" type="text" name="subject" required>
+                <label>Email</label>
+                <input class="input-field" type="email" name="email" required>
+                <label>Message</label>
+                <textarea class="input-field" name="message" required></textarea>
+                <input id="submit-btn" type="submit" value="Send">
+            </form>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Pragti Gupta. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for Theme Switching and Form Handling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default theme from localStorage or use blue theme
+            const currentTheme = localStorage.getItem('theme') || 'blue';
+            setTheme(currentTheme);
+            
+            // Highlight current theme dot
+            highlightThemeDot(currentTheme);
+            
+            // Add event listeners to theme dots
+            const themeDots = document.getElementsByClassName('theme-dot');
+            for (let dot of themeDots) {
+                dot.addEventListener('click', function() {
+                    const mode = this.dataset.mode;
+                    setTheme(mode);
+                    highlightThemeDot(mode);
+                    localStorage.setItem('theme', mode);
+                });
+            }
+            
+            // Form submission handling
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! I will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+        function setTheme(mode) {
+            const root = document.documentElement;
+            
+            switch(mode) {
+                case 'light':
+                    root.style.setProperty('--primary-blue', '#f5f5f5');
+                    root.style.setProperty('--dark-blue', '#e0e0e0');
+                    root.style.setProperty('--white', '#ffffff');
+                    root.style.setProperty('--dark-text', '#2c3e50');
+                    break;
+                case 'blue':
+                    root.style.setProperty('--primary-blue', '#3498db');
+                    root.style.setProperty('--dark-blue', '#2980b9');
+                    root.style.setProperty('--white', '#ffffff');
+                    root.style.setProperty('--dark-text', '#2c3e50');
+                    break;
+                case 'green':
+                    root.style.setProperty('--primary-blue', '#2ecc71');
+                    root.style.setProperty('--dark-blue', '#27ae60');
+                    root.style.setProperty('--white', '#ffffff');
+                    root.style.setProperty('--dark-text', '#2c3e50');
+                    break;
+                case 'purple':
+                    root.style.setProperty('--primary-blue', '#9b59b6');
+                    root.style.setProperty('--dark-blue', '#8e44ad');
+                    root.style.setProperty('--white', '#ffffff');
+                    root.style.setProperty('--dark-text', '#2c3e50');
+                    break;
+            }
+        }
+
+        function highlightThemeDot(mode) {
+            const themeDots = document.getElementsByClassName('theme-dot');
+            for (let dot of themeDots) {
+                dot.style.border = '2px solid var(--border-color)';
+                if (dot.dataset.mode === mode) {
+                    dot.style.border = '2px solid var(--dark-text)';
+                }
+            }
+        }
+
+        // Certificate Modal Functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('certificateModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('certificateModal').style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('certificateModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
