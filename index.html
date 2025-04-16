@@ -293,6 +293,63 @@
             background-color: var(--dark-blue);
         }
 
+        /* Projects Section */
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 180px;
+            overflow: hidden;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .project-link {
+            padding: 8px 15px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            background-color: var(--dark-blue);
+        }
+
         /* Modal Styles */
         .modal {
             display: none;
@@ -436,12 +493,12 @@
                 height: 180px;
             }
             
-            .certificate-gallery {
+            .certificate-gallery, .projects-container {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .certificate-item {
+            .certificate-item, .project-card {
                 width: 90%;
             }
             
@@ -465,6 +522,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -511,7 +569,7 @@
                             </tr>
                             <tr>
                                 <td>C, C++, Python, HTML, CSS</td>
-                                <td>MS Word, Excel</td>
+                                <td>MS Word, Excel, Tableau, Orange</td>
                             </tr>
                         </table>
                     </div>
@@ -594,6 +652,36 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
+        <section class="s1" id="projects">
+            <h3 style="text-align: center;">Projects</h3>
+            <div class="projects-container">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h4>Portfolio Website</h4>
+                    <div class="project-image">
+                        <img src="my portfolio.png" alt="Portfolio Website">
+                    </div>
+                    <p>A responsive personal portfolio website built with HTML, CSS, and JavaScript to showcase my skills and projects.</p>
+                    <div class="project-links">
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h4>Ecocity Solutions</h4>
+                    <div class="project-image">
+                        <img src="Ecocities.png" alt="EcoCity Solutions">
+                    </div>
+                    <p>A conceptual website for EcoCity Solutions, a platform promoting sustainable urban development through green technologies, community engagement, and resource sharing. Designed to educate and connect stakeholders in eco-friendly city planning.
+
+                        .</p>
+                    <div class="project-links"
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Modal for enlarged certificate view -->
         <div id="certificateModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -602,7 +690,7 @@
         </div>
 
         <!-- Contact Section -->
-        <section class="s1" id="contact">
+        <section class="s2" id="contact">
             <h3 style="text-align: center;">Get In Touch</h3>
             <div class="contact-info">
                 <p>📞Contact No.: <a href="tel:9103356433">9103356433</a></p>
